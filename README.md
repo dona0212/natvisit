@@ -1,7 +1,7 @@
 # natvisit
 SESYNC Workspace for Social Media-Ecology Synthesis for Park and Lake Features
 
-natvisit folder containing subfolders: Lakes, Pakrs, private_data, public_data
+natvisit folder containing subfolders: Lakes, Parks, private_data, public_data
 
 README.md
 .gitignore to ignore private_data folder # created by Marie Donahue
