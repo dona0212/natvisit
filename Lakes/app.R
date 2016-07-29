@@ -3,7 +3,7 @@ library(shiny)
 palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
           "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
 
-visits <- read.csv("real_data_1obs_log.csv")
+visits <- read.csv("private_data/real_data_1obs_log.csv")
 
 server <- shinyServer(function(input, output, session) {
   
