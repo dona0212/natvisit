@@ -10,10 +10,12 @@ parkshp <- spTransform(parkshp, "+proj=longlat")
 ui <- fluidPage(
   titlePanel("Social Media Visitation to Parks in the Twin Cities, MN"),
   sidebarPanel(
-    p("Select a park from the map at the right to explore its social media visitation from Flickr."),
-               style = "font-family: 'verdana'; font-si12pt", align = "center"),
-  mainPanel("",
-  leafletOutput("flickr_map", width = 500, height = 300), width = 700))
+     strong(p("Select a park from the map at the right to explore its social media visitation from Flickr.")),
+      em(p("Created by Marie Donahue, Natural Capital Project, University of Minnesota")),
+     style = "font-family: 'arial'",
+     align = "center"),
+    mainPanel("",
+  leafletOutput("flickr_map", width = 600, height = 400), width = 700))
 
 server <- function(input, output, session) {
   pal <- colorNumeric(
