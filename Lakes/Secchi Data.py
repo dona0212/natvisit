@@ -8,17 +8,23 @@ months_subset = [5,6,7,8]
 
 # secchi = pd.read_table('/Users/thom2117/Documents/SCIENCE/LAGOS/DavesData/lagos/LAGOS_LIMNO_v1.054.1/lagos_secchi_10541.txt')
 secchi = pd.read_table('C:/Users/rrnoe/NatCap/SESYNC/LAGOS_LIMNO_v1.054.1/lagos_secchi_10541.txt')
-
-
-pud = pd.read_csv('C:/Users/rrnoe/NatCap/SESYNC/natvisit/private_data/lakes_PUD.csv')
+pud = pd.read_csv('C:/Users/rrnoe/NatCap/SESYNC/natvisit/Lakes/private_data/lakes_PUD.csv')
 pud.rename(columns={'lagoslakei': 'lagoslakeid'}, inplace=True)
 
 
+
+## Filter
 subset_secchi = secchi[secchi['samplemonth'].isin(months_subset)]
+
+
+## Groupby
 grouped_subset_secchi = subset_secchi.groupby('lagoslakeid').mean()
+grouped_subset_secchi.drop(['eventidc10541', 'sampleyear', 'samplemonth', 'greatlakes'], axis=1, inplace=True)
 
 
+## Join
 result = pd.merge(grouped_subset_secchi, pud, left_index=True, right_on='lagoslakeid', how='inner')
+
 
 
 result.to_csv('C:/users/rrnoe/desktop/real_data.csv')
